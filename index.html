@@ -18,6 +18,7 @@
             --fg-muted: #a1a1aa;
             --fg-dim: #71717a;
             --border: #ffffff14;
+            --accent: #ffffff;
         }
 
         * {
@@ -37,13 +38,13 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Subtle Grain Effect Overlay */
+        /* Grain Effect Overlay */
         body::after {
             content: "";
             pointer-events: none;
             opacity: 0.035;
             z-index: 9999;
-            background-image: url("https://private-user-images.githubusercontent.com/58628602/562499378-1327b6c3-4e8a-46c7-ada6-deaf025f4e31.jpg?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzMzNTA1NTIsIm5iZiI6MTc3MzM1MDI1MiwicGF0aCI6Ii81ODYyODYwMi81NjI0OTkzNzgtMTMyN2I2YzMtNGU4YS00NmM3LWFkYTYtZGVhZjAyNWY0ZTMxLmpwZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjAzMTIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwMzEyVDIxMTczMlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTZhNzljM2MxMmEwODI1MWVhOTE1MDFlMTczYThhNWU1N2M0ZGRhMTZjMDI1MWNkOWRhNDM5OTJmYzU5N2RlMTcmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.tZSI64T6Bf224NluCAUSHw9wtGrICjKr-LKADyTFvU8");
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
             background-repeat: repeat;
             background-size: 256px 256px;
             position: fixed;
@@ -56,7 +57,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            opacity: 0.6;
+            opacity: 0.8;
             transition: opacity 0.4s;
         }
 
@@ -64,21 +65,44 @@
             opacity: 1;
         }
 
-        .nav-brand svg {
-            width: 28px;
-            height: 28px;
-            border-radius: 6px;
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: -0.01em;
+        }
+
+        .nav-brand img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%; /* Rounded Circle Icon */
+            object-fit: cover;
+            border: 1px solid var(--border);
         }
 
         .nav-links {
             display: flex;
-            gap: 1.5rem;
-            font-size: 0.875rem;
-            color: var(--fg-muted);
+            gap: 0.75rem;
         }
 
-        .nav-links a:hover {
+        /* Rounded Buttons for Links */
+        .btn-link {
+            padding: 0.5rem 1rem;
+            border-radius: 999px;
+            font-size: 0.825rem;
+            font-weight: 500;
+            border: 1px solid var(--border);
+            color: var(--fg-muted);
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .btn-link:hover {
             color: var(--fg);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--fg-muted);
         }
 
         /* Main Content */
@@ -87,7 +111,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-top: 12vh;
+            padding-top: 10vh;
             text-align: center;
         }
 
@@ -114,7 +138,7 @@
             opacity: 0;
         }
 
-        /* Mock App UI Container */
+        /* Custom Image Preview Container */
         .preview-container {
             width: min(95vw, 1200px);
             margin: 0 auto;
@@ -123,52 +147,21 @@
             opacity: 0;
         }
 
-        .mock-window {
-            background: #111113;
+        .custom-screenshot-wrap {
             border: 1px solid var(--border);
-            border-radius: 12px;
-            aspect-ratio: 16 / 10;
-            width: 100%;
-            box-shadow: 0 40px 100px -20px rgba(0,0,0,0.5);
+            border-radius: 16px;
             overflow: hidden;
-            position: relative;
-            mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+            box-shadow: 0 40px 100px -20px rgba(0,0,0,0.5);
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+            background: #111113;
         }
 
-        /* Mock Editor UI Elements */
-        .window-header {
-            height: 40px;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            padding: 0 1rem;
-            gap: 8px;
-        }
-
-        .dot { width: 10px; height: 10px; border-radius: 50%; }
-        .dot.red { background: #ff5f57; }
-        .dot.yellow { background: #febc2e; }
-        .dot.green { background: #28c840; }
-
-        .mock-content {
-            padding: 2rem;
-            display: flex;
-            gap: 2rem;
-            height: calc(100% - 40px);
-        }
-
-        .sidebar { width: 180px; display: flex; flex-direction: column; gap: 12px; }
-        .line { height: 8px; background: rgba(255,255,255,0.05); border-radius: 4px; }
-        .line.short { width: 60%; }
-        .line.long { width: 90%; }
-
-        .editor-area { flex: 1; display: flex; flex-direction: column; gap: 1rem; }
-        .chat-bubble {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid var(--border);
-            padding: 1rem;
-            border-radius: 8px;
-            width: 80%;
+        .custom-screenshot-wrap img {
+            width: 100%;
+            display: block;
+            /* Placeholder styles if image fails */
+            min-height: 400px;
+            object-fit: cover;
         }
 
         /* Footer */
@@ -179,11 +172,6 @@
             align-items: center;
             font-size: 0.8rem;
             color: var(--fg-dim);
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 1.5rem;
         }
 
         .footer-links a:hover {
@@ -201,21 +189,24 @@
             to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        @media (max-width: 640px) {
-            .nav, footer { padding: 1.25rem; }
-            .tagline { padding: 0 1rem; }
-            .sidebar { display: none; }
+        @media (max-width: 768px) {
+            .nav { flex-direction: column; gap: 1.5rem; padding: 2rem 1rem; }
+            footer { flex-direction: column; gap: 1rem; text-align: center; }
+            .tagline { padding: 0 1.5rem; }
         }
     </style>
 </head>
 <body>
     <nav class="nav">
         <div class="nav-brand">
-            <!-- T3 Logo Replacement -->
-            <img src="https://avatars.githubusercontent.com/u/267692766?s=200&v=4">
+            <!-- Rounded Avatar Icon -->
+            <img src="https://avatars.githubusercontent.com/u/267692766?s=200&v=4" alt="RTCN Logo">
+            <span>Roblox Thailand Community & Network</span>
         </div>
         <div class="nav-links">
-            <a href="https://www.facebook.com/RobloxThailandCommunity" target="_blank">Facebook</a>
+            <!-- Rounded Button Links -->
+            <a href="https://github.com/Roblox-Thailand-Community-Network-RTCN" class="btn-link" target="_blank">GitHub</a>
+            <a href="https://www.facebook.com/RobloxThailandCommunity" class="btn-link" target="_blank">Facebook</a>
         </div>
     </nav>
 
@@ -227,35 +218,10 @@
         </div>
 
         <div class="preview-container">
-            <div class="mock-window">
-                <div class="window-header">
-                    <div class="dot red"></div>
-                    <div class="dot yellow"></div>
-                    <div class="dot green"></div>
-                </div>
-                <div class="mock-content">
-                    <div class="sidebar">
-                        <div class="line short"></div>
-                        <div class="line long"></div>
-                        <div class="line short"></div>
-                        <div class="line long"></div>
-                        <div class="line short"></div>
-                    </div>
-                    <div class="editor-area">
-                        <div class="chat-bubble">
-                            <div class="line long" style="margin-bottom: 8px;"></div>
-                            <div class="line short"></div>
-                        </div>
-                        <div class="chat-bubble" style="align-self: flex-end; width: 60%; background: rgba(255,255,255,0.06);">
-                            <div class="line long"></div>
-                        </div>
-                        <div class="chat-bubble">
-                            <div class="line short" style="margin-bottom: 8px;"></div>
-                            <div class="line long" style="margin-bottom: 8px;"></div>
-                            <div class="line long"></div>
-                        </div>
-                    </div>
-                </div>
+            <div class="custom-screenshot-wrap">
+                <img src="https://private-user-images.githubusercontent.com/58628602/562499378-1327b6c3-4e8a-46c7-ada6-deaf025f4e31.jpg?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzMzNTE5MDIsIm5iZiI6MTc3MzM1MTYwMiwicGF0aCI6Ii81ODYyODYwMi81NjI0OTkzNzgtMTMyN2I2YzMtNGU4YS00NmM3LWFkYTYtZGVhZjAyNWY0ZTMxLmpwZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjAzMTIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwMzEyVDIxNDAwMlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWM4NjcyMTIzNGRmYTA1OGE4YWYyNWJhYzA5NjUyZDRmZGRkY2ZiMmIxYTBhZTJjYmU1ZmQxMGVjNjBkZTUwYmMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.C-oXHDkq0JhdqaoWQOWMNztakmvm1Mv1JxjrEvLdv7U?q=80&w=2070&auto=format&fit=crop" 
+                     alt="RTCN Preview" 
+                     onerror="this.src='https://via.placeholder.com/1200x800/111113/fafafa?text=RTCN+Preview+Image';">
             </div>
         </div>
     </main>
@@ -263,7 +229,7 @@
     <footer>
         <span>&copy; 2026 Roblox Thailand Community & Network (RTCN)</span>
         <div class="footer-links">
-            <a href="https://www.robloxthailand.com" target="_blank">Our site</a>
+            <a href="https://www.robloxthailand.com" target="_blank" class="btn-link" style="padding: 0.3rem 0.8rem;">Official Website</a>
         </div>
     </footer>
 </body>
