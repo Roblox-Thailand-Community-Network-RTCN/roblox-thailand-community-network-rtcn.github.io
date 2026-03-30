@@ -1,0 +1,589 @@
+/* ==========================================================================
+    BLOG — css/blog.css
+    Loaded after /css/style.css on all blog pages.
+    style.css provides: CSS variables, nav, footer, utility classes.
+    This file provides: blog listing, blog post prose, tag filters.
+ ========================================================================== */
+
+/* ==========================================================================
+    BLOG INDEX — Listing page
+ ========================================================================== */
+
+.blog-header {
+    padding: 5rem 0 3rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0;
+}
+
+.blog-header-inner {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.blog-header h1 {
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+}
+
+.blog-header p {
+    max-width: 480px;
+    font-size: 1rem;
+    color: var(--fg-muted);
+    margin-top: 0.75rem;
+    line-height: 1.65;
+}
+
+.rss-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    color: var(--fg-dim);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-full);
+    padding: 0.4rem 0.85rem;
+    white-space: nowrap;
+    transition: color var(--transition-fast), border-color var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.rss-link:hover {
+    color: var(--fg);
+    border-color: var(--border-hover);
+}
+
+/* Tag filter pills */
+.tag-filters {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1.5rem 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    border-bottom: 1px solid var(--border);
+    /* Fade out trailing edge on mobile */
+    mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+}
+
+.tag-filters::-webkit-scrollbar {
+    display: none;
+}
+
+.tag-btn {
+    padding: 0.35rem 0.9rem;
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-family: inherit;
+    border: 1px solid var(--border);
+    color: var(--fg-muted);
+    background: transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: color var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
+    text-transform: capitalize;
+}
+
+.tag-btn:hover {
+    color: var(--fg);
+    border-color: var(--border-hover);
+}
+
+.tag-btn[aria-pressed="true"] {
+    color: var(--bg);
+    background: var(--fg);
+    border-color: var(--fg);
+}
+
+/* Posts list */
+.posts-list {
+    list-style: none;
+}
+
+.post-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 2rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+    transition: opacity var(--transition-fast);
+}
+
+.post-item[hidden] {
+    display: none;
+}
+
+.post-date {
+    font-size: 0.8rem;
+    color: var(--fg-dim);
+    padding-top: 0.25rem;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.post-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.post-link {
+    display: block;
+    color: var(--fg);
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    transition: color var(--transition-fast);
+}
+
+.post-link:hover {
+    color: var(--fg-muted);
+}
+
+.post-excerpt {
+    font-size: 0.9rem;
+    color: var(--fg-muted);
+    line-height: 1.65;
+    /* Clamp to 3 lines */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.post-footer-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    font-size: 0.78rem;
+    color: var(--fg-dim);
+    margin-top: 0.25rem;
+}
+
+.post-footer-meta .sep {
+    opacity: 0.4;
+}
+
+.post-tags {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+}
+
+.post-tag-pill {
+    display: inline-block;
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--radius-full);
+    font-size: 0.72rem;
+    border: 1px solid var(--border);
+    color: var(--fg-dim);
+    text-transform: capitalize;
+    line-height: 1.4;
+}
+
+.no-results {
+    padding: 4rem 0;
+    text-align: center;
+    color: var(--fg-dim);
+    font-size: 0.95rem;
+}
+
+@media (max-width: 600px) {
+    .post-item {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        padding: 2rem 0;
+    }
+}
+
+/* ==========================================================================
+    BLOG POST — Article page
+ ========================================================================== */
+
+.post-page {
+    padding-top: 3rem;
+    padding-bottom: 6rem;
+}
+
+/* Reading progress bar — thin line at the very top of the viewport */
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--fg);
+    z-index: 1001;
+    pointer-events: none;
+    opacity: 0.6;
+    will-change: width;
+}
+
+.post-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--fg-dim);
+    margin-bottom: 2.5rem;
+    transition: color var(--transition-fast);
+}
+
+.post-back:hover {
+    color: var(--fg);
+}
+
+.post-header {
+    max-width: 680px;
+    margin-bottom: 3rem;
+}
+
+.post-header-tags {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+}
+
+.post-header-tag {
+    display: inline-block;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    border: 1px solid var(--border);
+    color: var(--fg-muted);
+    text-transform: capitalize;
+}
+
+.post-title {
+    font-size: clamp(1.9rem, 4.5vw, 2.75rem);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: var(--fg);
+    margin-bottom: 1.5rem;
+}
+
+.post-byline {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.post-byline-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.post-author-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--fg);
+}
+
+.post-author-role {
+    font-size: 0.8rem;
+    color: var(--fg-dim);
+}
+
+.post-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--fg-dim);
+    margin-top: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.post-meta-row .sep {
+    opacity: 0.4;
+}
+
+/* Cover image */
+.post-cover {
+    width: 100%;
+    max-width: 780px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    margin-bottom: 3rem;
+    display: block;
+}
+
+/* ==========================================================================
+    PROSE — Markdown rendered content
+    All styles are scoped to .prose so they can't bleed into the nav/footer.
+ ========================================================================== */
+.prose {
+    max-width: 680px;
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: var(--fg-muted);
+}
+
+.prose h2,
+.prose h3,
+.prose h4 {
+    color: var(--fg);
+    letter-spacing: -0.02em;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.25;
+}
+
+.prose h2 { font-size: 1.5rem; font-weight: 600; }
+.prose h3 { font-size: 1.2rem; font-weight: 600; }
+.prose h4 { font-size: 1rem;   font-weight: 600; }
+
+.prose p {
+    margin-bottom: 1.4rem;
+    color: var(--fg-muted);
+}
+
+.prose a {
+    color: var(--fg);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--border-hover);
+    transition: text-decoration-color var(--transition-fast);
+}
+
+.prose a:hover {
+    text-decoration-color: var(--fg-muted);
+}
+
+.prose strong {
+    color: var(--fg);
+    font-weight: 600;
+}
+
+.prose em {
+    color: var(--fg-muted);
+}
+
+.prose ul,
+.prose ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.prose ul li::marker { color: var(--fg-dim); }
+.prose ol li::marker { color: var(--fg-dim); }
+
+.prose blockquote {
+    border-left: 2px solid var(--border-hover);
+    padding-left: 1.25rem;
+    margin: 1.75rem 0;
+    color: var(--fg-dim);
+    font-style: italic;
+}
+
+.prose blockquote p { color: var(--fg-dim); margin-bottom: 0; }
+
+.prose hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2.5rem 0;
+}
+
+.prose code {
+    font-family: 'Geist Mono', 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.85em;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.15em 0.4em;
+    color: var(--fg);
+}
+
+.prose pre {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1.25rem 1.5rem;
+    overflow-x: auto;
+    margin-bottom: 1.4rem;
+    line-height: 1.6;
+}
+
+.prose pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.875rem;
+}
+
+.prose img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    margin: 1.5rem 0;
+    display: block;
+}
+
+.prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.4rem;
+    font-size: 0.9rem;
+}
+
+.prose th,
+.prose td {
+    text-align: left;
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.prose th {
+    color: var(--fg);
+    font-weight: 600;
+}
+
+/* ==========================================================================
+    POST FOOTER — prev/next navigation and contact
+ ========================================================================== */
+.post-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 4rem;
+    max-width: 680px;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.post-nav-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.post-nav-link:hover {
+    border-color: var(--border-hover);
+    background: var(--surface);
+}
+
+.post-nav-link.next { text-align: right; }
+
+.post-nav-label {
+    font-size: 0.72rem;
+    color: var(--fg-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.post-nav-title {
+    font-size: 0.9rem;
+    color: var(--fg);
+    font-weight: 500;
+    line-height: 1.35;
+}
+
+.post-contact {
+    max-width: 680px;
+    margin-top: 3rem;
+    padding: 2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.post-contact p {
+    font-size: 0.9rem;
+    color: var(--fg-muted);
+    margin: 0;
+}
+
+.post-contact a {
+    font-size: 0.85rem;
+    color: var(--fg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-full);
+    padding: 0.45rem 1rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.post-contact a:hover {
+    border-color: var(--border-hover);
+    background: var(--surface-hover);
+}
+
+/* Loading state while post.js fetches the markdown */
+.post-loading {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-top: 2rem;
+    max-width: 680px;
+}
+
+.skeleton {
+    background: var(--surface);
+    border-radius: 4px;
+    animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { opacity: 0.4; }
+    50%       { opacity: 0.8; }
+}
+
+/* Error state */
+.post-error {
+    padding: 4rem 0;
+    color: var(--fg-dim);
+    font-size: 0.95rem;
+    max-width: 480px;
+}
+
+.post-error a {
+    color: var(--fg);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    .post-nav {
+        grid-template-columns: 1fr;
+    }
+
+    .post-nav-link.next {
+        text-align: left;
+    }
+}
+
+/* ==========================================================================
+    REDUCE MOTION
+ ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    .reading-progress { transition: none; }
+    .skeleton         { animation: none; opacity: 0.5; }
+}

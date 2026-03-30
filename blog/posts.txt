@@ -1,0 +1,48 @@
+{
+  "posts": [
+    {
+      "title": "RTCN Blog Test",
+      "path": "/blog/2026/03/test/",
+      "date": "2026-03-31",
+      "author": "Femtrs",
+      "authorRole": "Co-Founder",
+      "tags": ["news", "roblox", "community"],
+      "excerpt": "Everything happening in the Thai Roblox scene this month — platform updates, studio announcements, and highlights from across our community.",
+      "cover": "/blog/2026/03/test/cover.webp",
+      "readTime": 4
+    },
+    {
+      "title": "Roblox Thailand News: March 2026",
+      "path": "/blog/2026/03/roblox-thailand-news-march-2026/",
+      "date": "2026-03-15",
+      "author": "Naruenart Mokarat",
+      "authorRole": "Lead, Content & Media",
+      "tags": ["news", "roblox", "community"],
+      "excerpt": "Everything happening in the Thai Roblox scene this month — platform updates, studio announcements, and highlights from across our community.",
+      "cover": "/blog/2026/03/roblox-thailand-news-march-2026/cover.webp",
+      "readTime": 4
+    },
+    {
+      "title": "Welcoming Our New Developer Relations Team",
+      "path": "/blog/2026/02/developer-relations-team/",
+      "date": "2026-02-10",
+      "author": "[redacted]",
+      "authorRole": "Co-Founder",
+      "tags": ["announcements", "team"],
+      "excerpt": "We're thrilled to introduce the people who will be bridging the gap between RTCN and the broader Roblox developer community in Thailand.",
+      "cover": "/blog/2026/02/developer-relations-team/cover.webp",
+      "readTime": 3
+    },
+    {
+      "title": "TREP Event Center: Year One Recap",
+      "path": "/blog/2026/01/trep-year-one/",
+      "date": "2026-01-20",
+      "author": "Panumes Sriwisathiyakun",
+      "authorRole": "Founder",
+      "tags": ["events", "community", "announcements"],
+      "excerpt": "One year since we opened TREP, our event hub for the Thai Roblox community. Here's everything we learned and what comes next.",
+      "cover": "/blog/2026/01/trep-year-one/cover.webp",
+      "readTime": 6
+    }
+  ]
+}

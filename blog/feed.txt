@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+    xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>RTCN Blog</title>
+        <link>https://www.robloxthailand.com/blog</link>
+        <description>News, announcements, and stories from Roblox Thailand Community &amp; Network.</description>
+        <language>en-us</language>
+        <copyright>Copyright 2026 Roblox Thailand Community &amp; Network</copyright>
+        <managingEditor>contact@robloxthailand.com (RTCN)</managingEditor>
+        <webMaster>contact@robloxthailand.com (RTCN)</webMaster>
+        <lastBuildDate>Sun, 15 Mar 2026 00:00:00 +0000</lastBuildDate>
+        <ttl>1440</ttl>
+
+        <atom:link href="https://www.robloxthailand.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
+
+        <image>
+            <url>https://www.robloxthailand.com/RTCN_logo.webp</url>
+            <title>RTCN Blog</title>
+            <link>https://www.robloxthailand.com/blog</link>
+        </image>
+
+        <!--
+            HOW TO ADD A NEW POST:
+            Copy one <item> block below and paste it at the top (newest first).
+            Update: title, link, description, pubDate, guid, dc:creator, category tags.
+            pubDate format: "Day, DD Mon YYYY HH:MM:SS +0000" (RFC 822)
+        -->
+
+        <item>
+            <title>Roblox Thailand News: March 2026</title>
+            <link>https://www.robloxthailand.com/blog/2026/03/roblox-thailand-news-march-2026/</link>
+            <description>Everything happening in the Thai Roblox scene this month — platform updates, studio announcements, and highlights from across our community.</description>
+            <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+            <guid isPermaLink="true">https://www.robloxthailand.com/blog/2026/03/roblox-thailand-news-march-2026/</guid>
+            <dc:creator>Naruenart Mokarat</dc:creator>
+            <category>news</category>
+            <category>roblox</category>
+            <category>community</category>
+        </item>
+
+        <item>
+            <title>Welcoming Our New Developer Relations Team</title>
+            <link>https://www.robloxthailand.com/blog/2026/02/developer-relations-team/</link>
+            <description>We're thrilled to introduce the people who will be bridging the gap between RTCN and the broader Roblox developer community in Thailand.</description>
+            <pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate>
+            <guid isPermaLink="true">https://www.robloxthailand.com/blog/2026/02/developer-relations-team/</guid>
+            <dc:creator>Ekaphop Segal</dc:creator>
+            <category>announcements</category>
+            <category>team</category>
+        </item>
+
+        <item>
+            <title>TREP Event Center: Year One Recap</title>
+            <link>https://www.robloxthailand.com/blog/2026/01/trep-year-one/</link>
+            <description>One year since we opened TREP, our event hub for the Thai Roblox community. Here's everything we learned and what comes next.</description>
+            <pubDate>Tue, 20 Jan 2026 00:00:00 +0000</pubDate>
+            <guid isPermaLink="true">https://www.robloxthailand.com/blog/2026/01/trep-year-one/</guid>
+            <dc:creator>Panumes Sriwisathiyakun</dc:creator>
+            <category>events</category>
+            <category>community</category>
+            <category>announcements</category>
+        </item>
+
+    </channel>
+</rss>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="darkreader-lock">
+    <meta name="color-scheme" content="dark light">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="referrer" content="no-referrer">
+
+    <!-- Theme flash prevention -->
+    <script>
+        (function () {
+            var saved = localStorage.getItem('theme');
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.dataset.theme = saved || (prefersDark ? 'dark' : 'light');
+        })();
+    </script>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
+    <link rel="alternate" type="application/rss+xml" title="RTCN Blog" href="/blog/feed.xml">
+
+    <link rel="alternate" hreflang="en" href="https://www.robloxthailand.com/blog/2026/03/test/">
+    <link rel="alternate" hreflang="th" href="https://www.robloxthailand.com/blog/2026/03/test/">
+    <link rel="alternate" hreflang="x-default" href="https://www.robloxthailand.com/blog/2026/03/test/">
+
+    <title>RTCN Blog Test | RTCN Blog</title>
+    <meta name="title" content="RTCN Blog Test">
+    <meta name="description" content="Testing blog content">
+    <meta name="author" content="Testing Agent">
+    <meta name="theme-color" content="#966fc3">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.robloxthailand.com/blog/2026/03/test/">
+    <meta property="og:title" content="RTCN Blog Test">
+    <meta property="og:description" content="Testing blog content">
+    <meta property="og:image" content="https://www.robloxthailand.com/blog/2026/03/test/cover.webp">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.robloxthailand.com/blog/2026/03/roblox-thailand-news-march-2026/">
+    <meta name="twitter:title" content="RTCN Blog Test">
+    <meta name="twitter:description" content="Testing blog content">
+    <meta name="twitter:image" content="https://www.robloxthailand.com/blog/2026/03/test/cover.webp">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Sarabun:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- marked.js converts content.md to HTML. Load before post.js. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.0/marked.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/blog.css">
+</head>
+<body>
+
+    <header class="nav-wrapper" id="navbar">
+        <nav class="nav container" aria-label="Main navigation">
+            <div class="nav-brand">
+                <img src="/RTCN_logo.webp" alt="RTCN Logo" width="32" height="32">
+                <span>Roblox Thailand Community & Network</span>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="btn-link" data-i18n="nav-about">About Us</a>
+                <a href="/blog/" class="btn-link" data-i18n="nav-blog">Blog</a>
+            </div>
+            <div class="nav-controls">
+                <button class="btn-link lang-btn" id="langToggle" aria-label="Switch to Thai language">TH</button>
+                <button class="btn-link theme-btn" id="themeToggle" aria-label="Switch to light mode">
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72 1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" aria-hidden="true" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79"/></svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- post.js renders the full article content here -->
+    <main id="post-root"></main>
+
+    <!-- FOOTER -->
+    <footer class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo-row">
+                    <img src="/RTCN_logo.webp" alt="RTCN Logo" width="40" height="40" loading="lazy" decoding="async">
+                    <span>Roblox Thailand<br>Community & Network<br>(RTCN)</span>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 data-i18n="footer-links">Our links</h4>
+                <div class="footer-links">
+                    <a href="/" data-i18n="footer-about">About Us</a>
+                    <a href="/blog/" data-i18n="nav-blog">Blog</a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 data-i18n="footer-socials">Our Socials</h4>
+                <div class="footer-links">
+                    <a href="https://www.facebook.com/robloxthailandcommunity" target="_blank" rel="noopener noreferrer">Facebook</a>
+                    <a href="https://bsky.app/profile/robloxthailand.com" target="_blank" rel="noopener noreferrer">Bluesky</a>
+                    <a href="https://www.linkedin.com/company/roblox-thailand-community-network" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://www.tiktok.com/@robloxthailandcommunity" target="_blank" rel="noopener noreferrer">TikTok</a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 data-i18n="footer-community">Our Community</h4>
+                <div class="footer-links">
+                    <a href="https://www.discord.com/invite/UyXRhEEZPa" target="_blank" rel="noopener noreferrer">Discord Server</a>
+                    <a href="https://www.roblox.com/communities/35097690" target="_blank" rel="noopener noreferrer">Roblox Group</a>
+                    <a href="https://www.facebook.com/groups/robloxstudiothailand" target="_blank" rel="noopener noreferrer">Facebook Group</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>&copy; <span id="year"></span> Roblox Thailand Community & Network. <span data-i18n="footer-copyright">All rights reserved.</span> RTCN is not endorsed, sponsored, or affiliated with Roblox Corporation.</span>
+            <span data-i18n="footer-org">A subsidiary of Sriwisa Group.</span>
+        </div>
+    </footer>
+
+    <script>
+        window.POST_CONFIG = {
+            contentPath: './content.md'
+        };
+    </script>
+    <script src="/js/post.js" defer></script>
+</body>
+</html>
