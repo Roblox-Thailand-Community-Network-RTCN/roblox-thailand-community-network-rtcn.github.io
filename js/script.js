@@ -4,6 +4,7 @@
 const translations = {
     en: {
         'nav-about':        'About Us',
+        'nav-blog': 'Our Blog',
         'lang-btn-label':   'TH',
         'lang-btn-aria':    'Switch to Thai',
         'theme-light-aria': 'Switch to light mode',
@@ -46,11 +47,13 @@ const translations = {
         'footer-socials':   'Our Socials',
         'footer-community': 'Our Community',
         'footer-about':     'About Us',
+        'footer-blog': 'Our Blog',
         'footer-copyright': 'All rights reserved.',
         'footer-org':       'A subsidiary of the Sriwisa Group.',
     },
     th: {
         'nav-about':        'เกี่ยวกับเรา',
+        'nav-blog': 'บล็อก',
         'lang-btn-label':   'EN',
         'lang-btn-aria':    'Switch to English',
         'theme-light-aria': 'เปลี่ยนเป็นโหมดสว่าง',
@@ -93,6 +96,7 @@ const translations = {
         'footer-socials':   'โซเชียลมีเดีย',
         'footer-community': 'ชุมชนของเรา',
         'footer-about':     'เกี่ยวกับเรา',
+        'footer-blog': 'บล็อก',
         'footer-copyright': 'สงวนลิขสิทธิ์',
         'footer-org':       'บริษัทในเครือ Sriwisa Group',
     }
