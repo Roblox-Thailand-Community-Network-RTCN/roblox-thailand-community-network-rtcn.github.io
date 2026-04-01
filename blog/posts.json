@@ -1,5 +1,15 @@
 {
   "posts": [
-    
+    {
+      "title": "Songkran Festival: Flowing Forward (2026)",
+      "path": "/blog/2026/04/songkran-festival-2026/",
+      "date": "2026-04-02",
+      "author": "Ekaphop Segal",
+      "authorRole": "Co-Founder, Roblox Community Ambassador (Thailand)",
+      "tags": ["news", "events", "community", "collaboration", "announcements"],
+      "excerpt": "Get ready for the fifth Songkran event on the Roblox platform with Songkran Festival: Flowing Forward.",
+      "cover": "/blog/2026/04/songkran-festival-2026/cover.webp",
+      "readTime": 2
+    }
   ]
 }
