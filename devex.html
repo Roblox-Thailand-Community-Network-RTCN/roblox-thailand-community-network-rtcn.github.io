@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="darkreader-lock">
+    <meta name="color-scheme" content="dark light">
+    <meta name="robots" content="index, follow">
+    <meta name="referrer" content="no-referrer">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Prevent flash of wrong theme -->
+    <script>
+        (function () {
+            var saved = localStorage.getItem('theme');
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.dataset.theme = saved || (prefersDark ? 'dark' : 'light');
+        })();
+    </script>
+
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png">
+
+    <link rel="canonical" href="https://www.robloxthailand.com/devex">
+    <link rel="alternate" hreflang="en" href="https://www.robloxthailand.com/devex">
+    <link rel="alternate" hreflang="x-default" href="https://www.robloxthailand.com/devex">
+
+    <title>DevEx Calculator — Roblox Thailand Community & Network</title>
+    <meta name="title" content="DevEx Calculator — Roblox Developer Exchange">
+    <meta name="description" content="Calculate your Roblox Developer Exchange (DevEx) earnings. Convert Robux to USD instantly using the latest April 2026 rates, including the new 18+ US player rate.">
+    <meta name="language" content="en">
+    <meta name="author" content="Ekaphop">
+    <meta name="theme-color" content="#966fc3">
+    <meta name="keywords" content="devex calculator, roblox devex, robux to usd, developer exchange, roblox earnings, robux calculator">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Roblox Thailand Community & Network (RTCN)">
+    <meta property="og:url" content="https://www.robloxthailand.com/devex">
+    <meta property="og:title" content="DevEx Calculator — Roblox Developer Exchange">
+    <meta property="og:description" content="Calculate your Roblox Developer Exchange earnings. Instantly convert Robux to USD with the latest 2026 rates.">
+    <meta property="og:image" content="https://www.robloxthailand.com/RTCN_banner.webp">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@MafuSaku">
+    <meta name="twitter:url" content="https://www.robloxthailand.com/devex">
+    <meta name="twitter:title" content="DevEx Calculator — Roblox Developer Exchange">
+    <meta name="twitter:description" content="Calculate your Roblox Developer Exchange earnings. Instantly convert Robux to USD with the latest 2026 rates.">
+    <meta name="twitter:image" content="https://www.robloxthailand.com/RTCN_banner.webp">
+
+    <meta name="application-name" content="Roblox Thailand Community & Network (RTCN)">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Structured data for Google rich results -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "DevEx Calculator",
+        "url": "https://www.robloxthailand.com/devex",
+        "description": "Calculate your Roblox Developer Exchange (DevEx) earnings using the latest 2026 rates.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Roblox Thailand Community & Network",
+            "url": "https://www.robloxthailand.com"
+        }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Sarabun:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/devex.css">
+</head>
+<body>
+
+    <header class="nav-wrapper" id="navbar">
+        <nav class="nav container" aria-label="Main navigation">
+            <div class="nav-brand">
+                <img src="/RTCN_logo.webp" alt="RTCN Logo" width="32" height="32">
+                <span>Roblox Thailand Community & Network</span>
+            </div>
+            <div class="nav-links">
+                <a href="/#about" class="btn-link">About Us</a>
+                <a href="https://www.robloxthailand.com/blog" class="btn-link">Our Blog</a>
+            </div>
+            <div class="nav-controls">
+                <button class="btn-link theme-btn" id="themeToggle" aria-label="Switch to light mode">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" aria-hidden="true" class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72 1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" aria-hidden="true" class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79"/></svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="devex-section container">
+
+            <div class="devex-header reveal">
+                <h1 class="devex-title">DevEx Calculator</h1>
+                <p class="devex-subtitle">A calculator for Roblox's Developer Exchange rates as of April 2026.</p>
+            </div>
+
+            <div class="calc-card reveal">
+
+                <!-- Input row: amount + unit dropdown + convert button -->
+                <div class="input-group" role="group" aria-label="Amount to convert">
+                    <input
+                        type="text"
+                        id="amount-input"
+                        class="calc-input"
+                        placeholder="30,000"
+                        inputmode="decimal"
+                        autocomplete="off"
+                        aria-label="Amount"
+                    >
+                    <div class="input-divider" aria-hidden="true"></div>
+                    <select id="unit-select" class="unit-select" aria-label="Input currency">
+                        <option value="robux">Robux</option>
+                        <option value="usd">USD</option>
+                    </select>
+                    <button id="convert-btn" class="convert-btn" aria-label="Convert">
+                        <!-- Send / arrow-right icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" aria-hidden="true" viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg>
+                    </button>
+                </div>
+
+                <!-- Arrow pointing down to indicate direction of conversion -->
+                <div class="conversion-arrow" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14m7-7-7 7-7-7"/></svg>
+                </div>
+
+                <!-- Output field — read-only result -->
+                <div class="output-group" aria-live="polite" aria-atomic="true">
+                    <span class="output-label" id="output-label">USD</span>
+                    <span class="output-value" id="output-value">—</span>
+                </div>
+
+                <!-- 18+ US player rate checkbox -->
+                <label class="rate-toggle" for="adult-rate-check">
+                    <div class="toggle-check-wrapper">
+                        <input type="checkbox" id="adult-rate-check">
+                        <div class="custom-check" aria-hidden="true">
+                            <!-- Checkmark icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" aria-hidden="true" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+                        </div>
+                    </div>
+                    <div class="toggle-text">
+                        <span class="toggle-label">18+ US player rate</span>
+                        <span class="toggle-desc">$0.0054 per 100 Robux — a 42% increase over the standard rate</span>
+                    </div>
+                </label>
+
+                <!-- Currency banner — only shown when output is USD -->
+                <div class="currency-banner" id="currency-banner" hidden>
+                    <div class="banner-left">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10"/></svg>
+                        <span>See this price in your currency</span>
+                    </div>
+                    <div class="banner-right">
+                        <select id="xe-currency-select" class="xe-select" aria-label="Target currency">
+                            <option value="EUR">EUR — Euro</option>
+                            <option value="GBP">GBP — British Pound</option>
+                            <option value="JPY">JPY — Japanese Yen</option>
+                            <option value="AUD">AUD — Australian Dollar</option>
+                            <option value="CAD">CAD — Canadian Dollar</option>
+                            <option value="CHF">CHF — Swiss Franc</option>
+                            <option value="CNY">CNY — Chinese Yuan</option>
+                            <option value="HKD">HKD — Hong Kong Dollar</option>
+                            <option value="SGD">SGD — Singapore Dollar</option>
+                            <option value="THB">THB — Thai Baht</option>
+                            <option value="SEK">SEK — Swedish Krona</option>
+                            <option value="NOK">NOK — Norwegian Krone</option>
+                            <option value="DKK">DKK — Danish Krone</option>
+                            <option value="NZD">NZD — New Zealand Dollar</option>
+                            <option value="INR">INR — Indian Rupee</option>
+                            <option value="BRL">BRL — Brazilian Real</option>
+                            <option value="KRW">KRW — South Korean Won</option>
+                            <option value="MXN">MXN — Mexican Peso</option>
+                            <option value="ZAR">ZAR — South African Rand</option>
+                            <option value="AED">AED — UAE Dirham</option>
+                            <option value="SAR">SAR — Saudi Riyal</option>
+                            <option value="MYR">MYR — Malaysian Ringgit</option>
+                            <option value="PHP">PHP — Philippine Peso</option>
+                            <option value="IDR">IDR — Indonesian Rupiah</option>
+                            <option value="TWD">TWD — Taiwan Dollar</option>
+                            <option value="TRY">TRY — Turkish Lira</option>
+                            <option value="PLN">PLN — Polish Zloty</option>
+                            <option value="CZK">CZK — Czech Koruna</option>
+                            <option value="HUF">HUF — Hungarian Forint</option>
+                            <option value="ILS">ILS — Israeli Shekel</option>
+                            <option value="QAR">QAR — Qatari Riyal</option>
+                            <option value="CLP">CLP — Chilean Peso</option>
+                            <option value="COP">COP — Colombian Peso</option>
+                            <option value="PEN">PEN — Peruvian Sol</option>
+                            <option value="VND">VND — Vietnamese Dong</option>
+                            <option value="EGP">EGP — Egyptian Pound</option>
+                            <option value="NGN">NGN — Nigerian Naira</option>
+                            <option value="PKR">PKR — Pakistani Rupee</option>
+                            <option value="BDT">BDT — Bangladeshi Taka</option>
+                            <option value="KWD">KWD — Kuwaiti Dinar</option>
+                            <option value="BHD">BHD — Bahraini Dinar</option>
+                            <option value="OMR">OMR — Omani Rial</option>
+                            <option value="JOD">JOD — Jordanian Dinar</option>
+                            <option value="RUB">RUB — Russian Ruble</option>
+                        </select>
+                        <a id="xe-link" class="xe-open-btn" href="#" target="_blank" rel="noopener noreferrer" aria-label="Open in XE Currency Converter">
+                            Open
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Rate reference note -->
+            <p class="rate-note reveal">
+                Standard rate: <strong>$0.0038 per 100 Robux</strong> · 18+ US rate: <strong>$0.0054 per 100 Robux</strong> · Rates effective September 5, 2025
+            </p>
+
+        </section>
+    </main>
+
+    <footer class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo-row">
+                    <img src="/RTCN_logo.webp" alt="RTCN Logo" width="40" height="40" loading="lazy" decoding="async">
+                    <span>Roblox Thailand<br>Community & Network<br>(RTCN)</span>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Our links</h4>
+                <div class="footer-links">
+                    <a href="https://www.robloxthailand.com/#about">About Us</a>
+                    <a href="https://www.robloxthailand.com/blog">Our Blog</a>
+                    <a href="/devex" aria-current="page">DevEx Calculator</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Our Socials</h4>
+                <div class="footer-links">
+                    <a href="https://www.facebook.com/robloxthailandcommunity" target="_blank" rel="noopener noreferrer">Facebook</a>
+                    <a href="https://bsky.app/profile/robloxthailand.com" target="_blank" rel="noopener noreferrer">Bluesky</a>
+                    <a href="https://www.linkedin.com/company/roblox-thailand-community-network" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://www.tiktok.com/@robloxthailandcommunity" target="_blank" rel="noopener noreferrer">TikTok</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Our Community</h4>
+                <div class="footer-links">
+                    <a href="https://www.discord.com/invite/UyXRhEEZPa" target="_blank" rel="noopener noreferrer">Discord Server</a>
+                    <a href="https://www.roblox.com/communities/35097690" target="_blank" rel="noopener noreferrer">Roblox Group</a>
+                    <a href="https://www.facebook.com/groups/robloxstudiothailand" target="_blank" rel="noopener noreferrer">Facebook Group</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; <span id="year"></span> Roblox Thailand Community & Network. All rights reserved. RTCN is not endorsed, sponsored, or affiliated with Roblox Corporation. Roblox and its various marks and logos are trademarks of Roblox Corporation.</span>
+            <span>A subsidiary of Sriwisa Group.</span>
+        </div>
+    </footer>
+
+    <script src="/js/devex.js" defer></script>
+
+    <!-- Reuse only the parts of the main script needed for this page -->
+    <script defer>
+        // Theme toggle
+        (function () {
+            const btn = document.getElementById('themeToggle');
+            if (!btn) return;
+
+            function updateLabel() {
+                const isDark = document.documentElement.dataset.theme === 'dark';
+                btn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+            }
+
+            btn.addEventListener('click', () => {
+                const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+                document.documentElement.dataset.theme = next;
+                localStorage.setItem('theme', next);
+                updateLabel();
+            });
+
+            updateLabel();
+        })();
+
+        // Sticky nav border
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        }, { passive: true });
+
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Footer year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
