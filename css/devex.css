@@ -3,7 +3,7 @@
    Relies on /css/style.css for base tokens (colors, fonts, nav, footer, etc.)
    ========================================================================== */
 
-/* Center the calculator on the page with breathing room */
+/* ---- Layout ---- */
 .devex-section {
     min-height: calc(100vh - 200px);
     display: flex;
@@ -87,19 +87,34 @@
     flex-shrink: 0;
 }
 
+/*
+   FIX: Native <select> ignores 'background: transparent' in some browsers and
+   always renders with the OS/system light background. Setting explicit background
+   and color from our CSS variables, plus 'color-scheme', makes it respect the theme.
+*/
+.unit-select,
+.xe-select {
+    background-color: var(--bg);
+    color: var(--fg);
+    /* Tell the browser which color scheme to use for the native dropdown panel */
+    color-scheme: dark;
+}
+
+[data-theme="light"] .unit-select,
+[data-theme="light"] .xe-select {
+    color-scheme: light;
+}
+
 .unit-select {
     padding: 0.875rem 0.75rem;
     font-size: 0.875rem;
     font-family: inherit;
     font-weight: 500;
-    background: transparent;
     border: none;
     outline: none;
-    color: var(--fg-muted);
     cursor: pointer;
     appearance: none;
     -webkit-appearance: none;
-    /* Chevron via background SVG — adapts to theme */
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23a1a1aa' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' viewBox='0 0 24 24'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 0.5rem center;
@@ -197,7 +212,6 @@
     background: var(--surface-hover);
 }
 
-/* Hide the native checkbox, show our custom one */
 .toggle-check-wrapper {
     position: relative;
     width: 18px;
@@ -234,7 +248,6 @@
     color: var(--bg);
 }
 
-/* Checked state */
 .toggle-check-wrapper input:checked + .custom-check {
     background: var(--fg);
     border-color: var(--fg);
@@ -264,13 +277,17 @@
 }
 
 /* ---- Currency banner ---- */
+/*
+   FIX: More generous padding and gap on desktop so items aren't cramped.
+   The globe icon is also sized up via the svg inside .banner-left.
+*/
 .currency-banner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 0.75rem;
-    padding: 0.875rem 1rem;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
     background: var(--bg);
@@ -280,35 +297,48 @@
 .banner-left {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.6rem;
     color: var(--fg-muted);
     flex: 1;
     min-width: 0;
 }
 
-.banner-right {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+/* FIX: Globe icon — larger on desktop */
+.banner-left svg {
+    width: 18px;
+    height: 18px;
     flex-shrink: 0;
 }
 
+@media (min-width: 520px) {
+    .banner-left svg {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+.banner-right {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    flex-shrink: 0;
+}
+
+/* FIX: Same color-scheme override applied above in the shared rule */
 .xe-select {
     font-size: 0.825rem;
     font-family: inherit;
     font-weight: 500;
-    padding: 0.35rem 1.5rem 0.35rem 0.6rem;
+    padding: 0.4rem 1.6rem 0.4rem 0.7rem;
     border: 1px solid var(--border);
     border-radius: var(--radius-full);
-    background: var(--surface);
-    color: var(--fg);
     outline: none;
     cursor: pointer;
     appearance: none;
     -webkit-appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='none' stroke='%23a1a1aa' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' viewBox='0 0 24 24'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 0.4rem center;
+    background-position: right 0.45rem center;
     transition: border-color var(--transition-fast);
 }
 
@@ -321,7 +351,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.3rem;
-    padding: 0.35rem 0.75rem;
+    padding: 0.4rem 0.875rem;
     border-radius: var(--radius-full);
     font-size: 0.825rem;
     font-weight: 500;
@@ -341,17 +371,29 @@
     border-color: var(--fg-muted);
 }
 
-/* ---- Rate reference note below the card ---- */
+/* ---- Rate reference notes ---- */
 .rate-note {
     font-size: 0.8rem;
     color: var(--fg-dim);
     text-align: center;
     max-width: 480px;
+    line-height: 1.6;
 }
 
 .rate-note strong {
     color: var(--fg-muted);
     font-weight: 500;
+}
+
+.rate-note a {
+    color: var(--fg-muted);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color var(--transition-fast);
+}
+
+.rate-note a:hover {
+    color: var(--fg);
 }
 
 /* ---- Mobile adjustments ---- */
@@ -360,9 +402,10 @@
         padding: 1.5rem;
     }
 
+    /* On narrow screens let the banner stack naturally — it already does via flex-wrap */
     .currency-banner {
-        flex-direction: column;
-        align-items: flex-start;
+        padding: 0.875rem 1rem;
+        gap: 0.75rem;
     }
 
     .banner-right {
@@ -374,7 +417,7 @@
     }
 }
 
-/* Respect reduced motion preference */
+/* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
     .convert-btn:hover,
     .convert-btn:active {
