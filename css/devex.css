@@ -19,6 +19,7 @@
     text-align: center;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 0.5rem;
 }
 
@@ -32,6 +33,27 @@
 .devex-subtitle {
     font-size: 0.95rem;
     color: var(--fg-muted);
+}
+
+/* Language toggle button — sits just below the subtitle */
+.lang-btn {
+    margin-top: 0.25rem;
+    padding: 0.3rem 0.875rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--fg-muted);
+    font-size: 0.8rem;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.lang-btn:hover {
+    color: var(--fg);
+    border-color: var(--fg-muted);
+    background: var(--surface-hover);
 }
 
 /* ---- Calculator card ---- */
@@ -88,15 +110,13 @@
 }
 
 /*
-   FIX: Native <select> ignores 'background: transparent' in some browsers and
-   always renders with the OS/system light background. Setting explicit background
-   and color from our CSS variables, plus 'color-scheme', makes it respect the theme.
+   Native <select> ignores 'background: transparent' in some browsers.
+   Explicit background + color + color-scheme makes it follow the theme.
 */
 .unit-select,
 .xe-select {
     background-color: var(--bg);
     color: var(--fg);
-    /* Tell the browser which color scheme to use for the native dropdown panel */
     color-scheme: dark;
 }
 
@@ -125,32 +145,6 @@
 .unit-select:hover,
 .unit-select:focus {
     color: var(--fg);
-}
-
-/* Convert / send button */
-.convert-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    margin: 3px;
-    flex-shrink: 0;
-    border: none;
-    border-radius: var(--radius-full);
-    background: var(--fg);
-    color: var(--bg);
-    cursor: pointer;
-    transition: opacity var(--transition-fast), transform var(--transition-fast);
-}
-
-.convert-btn:hover {
-    opacity: 0.85;
-    transform: scale(1.04);
-}
-
-.convert-btn:active {
-    transform: scale(0.96);
 }
 
 /* ---- Arrow between input and output ---- */
@@ -203,13 +197,20 @@
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
     background: var(--bg);
-    transition: border-color var(--transition-fast), background var(--transition-fast);
+    transition: border-color var(--transition-fast), background var(--transition-fast), opacity var(--transition-fast);
     user-select: none;
 }
 
 .rate-toggle:hover {
     border-color: var(--border-hover);
     background: var(--surface-hover);
+}
+
+/* Disabled state — when unit is USD → Robux */
+.rate-toggle.is-disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
 }
 
 .toggle-check-wrapper {
@@ -277,10 +278,6 @@
 }
 
 /* ---- Currency banner ---- */
-/*
-   FIX: More generous padding and gap on desktop so items aren't cramped.
-   The globe icon is also sized up via the svg inside .banner-left.
-*/
 .currency-banner {
     display: flex;
     align-items: center;
@@ -303,7 +300,6 @@
     min-width: 0;
 }
 
-/* FIX: Globe icon — larger on desktop */
 .banner-left svg {
     width: 18px;
     height: 18px;
@@ -324,7 +320,6 @@
     flex-shrink: 0;
 }
 
-/* FIX: Same color-scheme override applied above in the shared rule */
 .xe-select {
     font-size: 0.825rem;
     font-family: inherit;
@@ -359,9 +354,9 @@
     border: 1px solid var(--border);
     color: var(--fg-muted);
     background: rgba(128, 128, 128, 0.05);
-    cursor: pointer;
     white-space: nowrap;
     text-decoration: none;
+    flex-shrink: 0;
     transition: color var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
 }
 
@@ -402,18 +397,28 @@
         padding: 1.5rem;
     }
 
-    /* On narrow screens let the banner stack naturally — it already does via flex-wrap */
     .currency-banner {
         padding: 0.875rem 1rem;
         gap: 0.75rem;
     }
 
+    /* Stack the xe-select and Open button side by side filling the full width */
     .banner-right {
         width: 100%;
     }
 
     .xe-select {
         flex: 1;
+        min-width: 0;
+    }
+
+    /* On mobile the Open button shows only the icon to save space */
+    .xe-open-btn {
+        padding: 0.4rem 0.7rem;
+    }
+
+    #xe-open-text {
+        display: none;
     }
 }
 

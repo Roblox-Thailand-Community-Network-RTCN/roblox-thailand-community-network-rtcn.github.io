@@ -7,14 +7,14 @@
   
   <!-- Homepage -->
   <url>
-    <loc>https://robloxthailand.com/</loc>
-    <lastmod>2026-05-05</lastmod>
+    <loc>https://www.robloxthailand.com/</loc>
+    <lastmod>2026-05-06</lastmod>
     <priority>1.0</priority>
   </url>
 
   <!-- Blog index -->
   <url>
-    <loc>https://robloxthailand.com/blog/</loc>
+    <loc>https://www.robloxthailand.com/blog/</loc>
     <lastmod>2026-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -22,7 +22,7 @@
 
   <!-- Blog feed -->
   <url>
-    <loc>https://robloxthailand.com/blog/feed.xml</loc>
+    <loc>https://www.robloxthailand.com/blog/feed.xml</loc>
     <lastmod>2026-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -30,8 +30,8 @@
   
   <!-- DevEx Calculator -->
   <url>
-    <loc>https://robloxthailand.com/devex</loc>
-    <lastmod>2026-05-05</lastmod>
+    <loc>https://www.robloxthailand.com/devex</loc>
+    <lastmod>2026-05-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

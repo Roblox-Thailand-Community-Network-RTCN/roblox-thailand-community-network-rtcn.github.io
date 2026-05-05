@@ -15,7 +15,7 @@ const translations = {
 
         'about-title':  'Who are we?',
         'about-p1':     'Roblox Thailand Community & Network (RTCN) is an organization dedicated to bringing Thai Roblox players together, supporting various initiatives, and organizing events to strengthen community connections. We are passionate about the Roblox platform and the Metaverse.',
-        'about-p2':     'The organization focuses on developing and promoting communication within the Roblox Thailand community, with most activities and events managed through Facebook.',
+        'about-p2':     'The organization focuses on developing and promoting communication within the Roblox Thailand community, with most activities and events managed through Facebook and Discord.',
 
         'stats-title':  'Our data shows',
         'stat1-title':  'Total Members',
@@ -64,7 +64,7 @@ const translations = {
 
         'about-title':  'เราคือใคร?',
         'about-p1':     'Roblox Thailand Community & Network (RTCN) คือองค์กรที่มุ่งเน้นในการรวบรวมผู้เล่น Roblox ชาวไทยเข้าด้วยกัน สนับสนุนโครงการต่าง ๆ และจัดกิจกรรมเพื่อเสริมสร้างความสัมพันธ์ในชุมชนให้แข็งแกร่ง เรามีความมุ่งมั่นและหลงใหลในแพลตฟอร์ม Roblox และ Metaverse',
-        'about-p2':     'องค์กรของเรามุ่งเน้นที่การพัฒนาและส่งเสริมการสื่อสารภายในชุมชน Roblox Thailand โดยกิจกรรมและเหตุการณ์ส่วนใหญ่จะได้รับการจัดการผ่านทาง Facebook',
+        'about-p2':     'องค์กรของเรามุ่งเน้นที่การพัฒนาและส่งเสริมการสื่อสารภายในชุมชน Roblox Thailand โดยกิจกรรมและเหตุการณ์ส่วนใหญ่จะได้รับการจัดการผ่านทาง Facebook และ Discord',
 
         'stats-title':  'ข้อมูลของเราแสดงให้เห็นว่า',
         'stat1-title':  'สมาชิกทั้งหมด',

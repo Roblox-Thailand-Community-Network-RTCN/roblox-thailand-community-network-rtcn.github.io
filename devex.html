@@ -108,6 +108,8 @@
             <div class="devex-header reveal">
                 <h1 class="devex-title">DevEx Calculator</h1>
                 <p class="devex-subtitle">A calculator for Roblox's Developer Exchange rates as of June 2026.</p>
+                <!-- Language toggle — JS sets label and wires the click -->
+                <button id="lang-toggle" class="lang-btn" aria-label="Switch language">ภาษาไทย</button>
             </div>
 
             <div class="calc-card reveal">
@@ -164,7 +166,7 @@
                 <div class="currency-banner" id="currency-banner" hidden>
                     <div class="banner-left">
                         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10"/></svg>
-                        <span>See this price in your currency</span>
+                        <span id="banner-text">See this price in your currency</span>
                     </div>
                     <div class="banner-right">
                         <select id="xe-currency-select" class="xe-select" aria-label="Target currency">
@@ -213,8 +215,9 @@
                             <option value="JOD">JOD — Jordanian Dinar</option>
                             <option value="RUB">RUB — Russian Ruble</option>
                         </select>
+                        <!-- span wraps the text so JS can swap it for Thai without touching the SVG -->
                         <a id="xe-link" class="xe-open-btn" href="#" target="_blank" rel="noopener noreferrer" aria-label="Open in XE Currency Converter">
-                            Open
+                            <span id="xe-open-text">Open</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" aria-hidden="true" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></svg>
                         </a>
                     </div>
@@ -223,7 +226,7 @@
             </div>
 
             <!-- Rate reference note -->
-            <p class="rate-note reveal">
+            <p class="rate-note reveal" id="rate-note-1">
                 Standard rate: <strong>$0.0038 per Robux</strong> · 18+ US rate: <strong>$0.0054 per Robux</strong>
             </p>
 
