@@ -5,6 +5,7 @@ const translations = {
     en: {
         'nav-about':        'About Us',
         'nav-blog': 'Our Blog',
+        'nav-donate': 'Support Us',
         'lang-btn-label':   'TH',
         'lang-btn-aria':    'Switch to Thai',
         'theme-light-aria': 'Switch to light mode',
@@ -49,12 +50,15 @@ const translations = {
         'footer-community': 'Our Community',
         'footer-about':     'About Us',
         'footer-blog': 'Our Blog',
+        'footer-devex': 'DevEx Calculator',
+        'footer-donate': "Support Us",
         'footer-copyright': 'All rights reserved.',
         'footer-org':       'A subsidiary of the Sriwisa Group.',
     },
     th: {
         'nav-about':        'เกี่ยวกับเรา',
         'nav-blog': 'บล็อก',
+        'nav-donate': 'สนับสนุนพวกเรา',
         'lang-btn-label':   'EN',
         'lang-btn-aria':    'Switch to English',
         'theme-light-aria': 'เปลี่ยนเป็นโหมดสว่าง',
@@ -99,6 +103,8 @@ const translations = {
         'footer-community': 'ชุมชนของเรา',
         'footer-about':     'เกี่ยวกับเรา',
         'footer-blog': 'บล็อก',
+        'footer-devex': 'คำนวณ DevEx',
+        'footer-donate': 'สนับสนุนพวกเรา',
         'footer-copyright': 'สงวนลิขสิทธิ์',
         'footer-org':       'บริษัทในเครือ Sriwisa Group',
     }

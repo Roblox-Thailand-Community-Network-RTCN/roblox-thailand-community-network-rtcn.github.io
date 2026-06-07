@@ -8,7 +8,7 @@
     <meta name="robots" content="index, follow">
     <meta name="referrer" content="no-referrer">
 
-    <!-- Theme flash prevention — must run synchronously before render -->
+    <!-- Theme flash prevention -->
     <script>
         (function () {
             var saved = localStorage.getItem('theme');
@@ -20,56 +20,39 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png">
 
-    <!-- Hreflang -->
-    <link rel="alternate" hreflang="en" href="https://www.robloxthailand.com/blog/">
-    <link rel="alternate" hreflang="th" href="https://www.robloxthailand.com/blog/">
-    <link rel="alternate" hreflang="x-default" href="https://www.robloxthailand.com/blog/">
-
     <!-- RSS autodiscovery -->
     <link rel="alternate" type="application/rss+xml" title="RTCN Blog" href="/blog/feed.xml">
 
-    <title>Blog | Roblox Thailand Community & Network</title>
-    <meta name="title" content="Blog | RTCN">
-    <meta name="description" content="News, updates, and stories from Roblox Thailand Community & Network. Community highlights, event recaps, and platform news.">
-    <meta name="author" content="RTCN">
-    <meta name="theme-color" content="#966fc3">
-    <meta name="google-site-verification" content="T0a899HAQ4irJz40z7Z8vSlwVx0y3CXdc9K-9JzOXnI" />
+    <!-- Hreflang — update both hrefs to this post's full URL -->
+    <link rel="alternate" hreflang="en" href="https://www.robloxthailand.com/blog/2026/05roblox-thailand-community-network-x-roblox-vietnam-studio-community/">
+    <link rel="alternate" hreflang="th" href="https://www.robloxthailand.com/blog/2026/05/roblox-thailand-community-network-x-roblox-vietnam-studio-community/">
+    <link rel="alternate" hreflang="x-default" href="https://www.robloxthailand.com/blog/2026/05/roblox-thailand-community-network-x-roblox-vietnam-studio-community/">
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.robloxthailand.com/blog/">
-    <meta property="og:title" content="Blog | RTCN">
-    <meta property="og:description" content="News, updates, and stories from Roblox Thailand Community & Network.">
-    <meta property="og:image" content="https://www.robloxthailand.com/RTCN_banner.webp">
+    <title>Roblox Thailand Community & Network x Roblox Vietnam Studio Community | RTCN Blog</title>
+    <meta name="title" content="Post Title Here">
+    <meta name="description" content="Two strong communities in the Roblox SEA space have just joined forces. Different culture, same goals.">
+    <meta name="author" content="Author Name">
+    <meta name="theme-color" content="#966fc3">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.robloxthailand.com/blog/2026/05/roblox-thailand-community-network-x-roblox-vietnam-studio-community/">
+    <meta property="og:title" content="Roblox Thailand Community & Network x Roblox Vietnam Studio Community | RTCN Blog">
+    <meta property="og:description" content="Two strong communities in the Roblox SEA space have just joined forces. Different culture, same goals.">
+    <meta property="og:image" content="https://www.robloxthailand.com/blog/2026/05/roblox-thailand-community-network-x-roblox-vietnam-studio-community/cover.webp">
     <meta property="og:locale" content="en_US">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://www.robloxthailand.com/blog/">
-    <meta name="twitter:title" content="Blog | RTCN">
-    <meta name="twitter:description" content="News, updates, and stories from Roblox Thailand Community & Network.">
-    <meta name="twitter:image" content="https://www.robloxthailand.com/RTCN_banner.webp">
-
-    <!-- Schema.org: Blog -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Blog",
-        "name": "RTCN Blog",
-        "url": "https://www.robloxthailand.com/blog/",
-        "description": "News, updates, and stories from Roblox Thailand Community & Network.",
-        "publisher": {
-            "@type": "Organization",
-            "name": "Roblox Thailand Community & Network",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://www.robloxthailand.com/RTCN_logo.webp"
-            }
-        }
-    }
-    </script>
+    <meta name="twitter:url" content="https://www.robloxthailand.com/blog/2026/05/roblox-thailand-community-network-x-roblox-vietnam-studio-community/">
+    <meta name="twitter:title" content="Roblox Thailand Community & Network x Roblox Vietnam Studio Community | RTCN Blog">
+    <meta name="twitter:description" content="Two strong communities in the Roblox SEA space have just joined forces. Different culture, same goals.">
+    <meta name="twitter:image" content="https://www.robloxthailand.com/blog/2026/05/roblox-thailand-community-network-x-roblox-vietnam-studio-community/cover.webp">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Sarabun:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- marked.js: converts your content.md into HTML. Don't remove this. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.0/marked.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/blog.css">
@@ -84,7 +67,7 @@
             </div>
             <div class="nav-links">
                 <a href="/" class="btn-link" data-i18n="nav-about">About Us</a>
-                <a href="/blog/" class="btn-link" aria-current="page" data-i18n="nav-blog">Blog</a>
+                <a href="/blog/" class="btn-link" data-i18n="nav-blog">Blog</a>
             </div>
             <div class="nav-controls">
                 <button class="btn-link lang-btn" id="langToggle" aria-label="Switch to Thai language">TH</button>
@@ -96,31 +79,8 @@
         </nav>
     </header>
 
-    <main>
-        <div class="blog-header container">
-            <div class="blog-header-inner">
-                <div>
-                    <h1 data-i18n="nav-blog">Our Blog</h1>
-                    <p data-i18n="blog-subtitle">News, updates, and stories from us and the Thai Roblox community.</p>
-                </div>
-                <a href="/blog/feed.xml" class="rss-link" aria-label="Subscribe via RSS feed">
-                    <!-- RSS icon -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
-                    RSS
-                </a>
-            </div>
-        </div>
-
-        <div class="container">
-            <!-- Tag filter pills — populated by blog.js -->
-            <div class="tag-filters" id="tagFilters" role="group" aria-label="Filter posts by tag"></div>
-
-            <!-- Post list — populated by blog.js -->
-            <ul class="posts-list" id="postsList" aria-live="polite" aria-label="Blog posts"></ul>
-
-            <p class="no-results" id="noResults" hidden data-i18n="no-results">No posts match this tag.</p>
-        </div>
-    </main>
+    <!-- post.js renders everything inside here -->
+    <main id="post-root"></main>
 
     <!-- FOOTER -->
     <footer class="container">
@@ -137,8 +97,6 @@
                 <div class="footer-links">
                     <a href="/" data-i18n="footer-about">About Us</a>
                     <a href="/blog/" data-i18n="nav-blog">Blog</a>
-                    <a href="/devex.html" data-i18n="footer-dev">DevEx Calculator</a>
-                    <a href="https://donate.robloxthailand.com/roblox" data-i18n="footer-donate">Support Us</a>
                 </div>
             </div>
 
@@ -170,7 +128,15 @@
         </div>
     </footer>
 
-    <script src="/js/blog.js" defer></script>
+    <script>
+        // The only thing that changes between posts.
+        // contentPath must point to the markdown file relative to this index.html.
+        window.POST_CONFIG = {
+            contentPath: './content.md'
+        };
+    </script>
+    
+    <script src="/js/post.js" defer></script>
 
 </body>
 </html>
