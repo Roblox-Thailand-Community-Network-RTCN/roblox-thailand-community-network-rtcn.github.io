@@ -42,7 +42,7 @@ const translations = {
 
         'connect-title':    'Connect with us',
         'connect-subtitle': 'Get in touch',
-        'contact-call':     'Call us (095-590-3727)',
+        'contact-call':     'Call us for business inquiries (095-590-3727)',
         'contact-location': 'Bangkok, Thailand',
 
         'footer-links':     'Our links',
