@@ -68,7 +68,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Sarabun:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -147,39 +147,38 @@
             </div>
         </section>
 
-        <!-- Our data shows -->
-        <section class="section-padding container reveal">
-            <h2 class="section-title text-center" data-i18n="stats-title">Our data shows</h2>
-            <div class="stats-grid">
-                
-                <!-- Stat Card 1 -->
-                <article class="stat-card">
-                    <h3 class="stat-title" data-i18n="stat1-title">Total Members</h3>
-                    <div class="stat-number-box">
-                        <!-- data-target is the number it will count up to -->
-                        <div class="stat-number counter" data-target="23000">0</div>
-                    </div>
-                    <p class="stat-subtitle" data-i18n="stat-note">*As of Q2 2026</p>
-                </article>
+        <!-- Our data shows — editorial stats panel -->
+        <section class="stats-section">
+            <div class="container">
+                <h2 class="stats-eyebrow" data-i18n="stats-title">Our data shows</h2>
+                <div class="stats-row">
 
-                <!-- Stat Card 2 -->
-                <article class="stat-card">
-                    <h3 class="stat-title" data-i18n="stat2-title">Active Projects</h3>
-                    <div class="stat-number-box">
-                        <div class="stat-number counter" data-target="9">0</div>
+                    <!-- Stat 1 -->
+                    <div class="stat-item reveal">
+                        <span class="stat-number counter" data-target="38700" aria-label="38,700 plus total members">0</span>
+                        <p class="stat-label" data-i18n="stat1-title">Total Members</p>
+                        <p class="stat-note" data-i18n="stat-note">*As of Q2 2026</p>
                     </div>
-                    <p class="stat-subtitle" data-i18n="stat-note">*As of Q2 2026</p>
-                </article>
 
-                <!-- Stat Card 3 -->
-                <article class="stat-card">
-                    <h3 class="stat-title" data-i18n="stat3-title">Events Hosted</h3>
-                    <div class="stat-number-box">
-                        <div class="stat-number counter" data-target="10">0</div>
+                    <div class="stat-divider" aria-hidden="true"></div>
+
+                    <!-- Stat 2 -->
+                    <div class="stat-item reveal">
+                        <span class="stat-number counter" data-target="9" aria-label="9 plus active projects">0</span>
+                        <p class="stat-label" data-i18n="stat2-title">Active Projects</p>
+                        <p class="stat-note" data-i18n="stat-note">*As of Q2 2026</p>
                     </div>
-                    <p class="stat-subtitle" data-i18n="stat-note">*As of Q2 2026</p>
-                </article>
 
+                    <div class="stat-divider" aria-hidden="true"></div>
+
+                    <!-- Stat 3 -->
+                    <div class="stat-item reveal">
+                        <span class="stat-number counter" data-target="13" aria-label="13 plus events hosted">0</span>
+                        <p class="stat-label" data-i18n="stat3-title">Events Hosted</p>
+                        <p class="stat-note" data-i18n="stat-note">*As of Q2 2026</p>
+                    </div>
+
+                </div>
             </div>
         </section>
 
@@ -391,8 +390,10 @@
                 </div>
             </div>
             
-            <!-- JavaScript will populate the diamonds dynamically based on card count -->
-            <div class="carousel-indicators"></div>
+            <!-- Simple scroll progress bar replaces the old diamond indicators -->
+            <div class="carousel-progress" aria-hidden="true">
+                <div class="carousel-progress-bar"></div>
+            </div>
         </section>
 
         <!-- Connect with us -->
@@ -456,12 +457,13 @@
                     <!-- Footer Logo -->
                     <img src="RTCN_logo.webp" alt="RTCN Logo" width="40" height="40" loading="lazy" decoding="async">
                     <span>Roblox Thailand<br>Community & Network<br>(RTCN)</span>
-
+                </div>
+                <!-- DMCA badges sit below the brand name -->
+                <div class="footer-dmca-row">
                     <a href="https://www.dmca.com/Protection/Status.aspx?ID=2a9f81b4-9181-4334-9cfa-f34ccc3b94a5" title="DMCA.com Protection Status" class="dmca-badge">
                         <img src ="https://images.dmca.com/Badges/dmca_protected_sml_120n.png?ID=2a9f81b4-9181-4334-9cfa-f34ccc3b94a5" alt="DMCA.com Protection Status" loading="lazy" decoding="async" />
                     </a>
                     <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"></script>
-
                     <a href="https://www.dmca.com/compliance/www.robloxthailand.com" title="DMCA Compliance information for www.robloxthailand.com">
                         <img src="https://www.dmca.com/img/dmca-compliant-grayscale.png" alt="DMCA compliant image" loading="lazy" decoding="async" />
                     </a>
@@ -495,7 +497,7 @@
             <div class="footer-col">
                 <h4 data-i18n="footer-community">Our Community</h4>
                 <div class="footer-links">
-                    <a href="https://www.discord.com/invite/UyXRhEEZPa" target="_blank" rel="noopener noreferrer">Discord Server</a>
+                    <a href="https://discord.com/invite/UyXRhEEZPa" target="_blank" rel="noopener noreferrer">Discord Server</a>
                     <a href="https://www.roblox.com/communities/35097690" target="_blank" rel="noopener noreferrer">Roblox Group</a>
                     <a href="https://www.facebook.com/groups/robloxstudiothailand" target="_blank" rel="noopener noreferrer">Facebook Group</a>
                 </div>

@@ -237,70 +237,38 @@ const counterObserver = new IntersectionObserver((entries, observer) => {
 
 counters.forEach(counter => counterObserver.observe(counter));
 
-//  Carousel Diamond Indicators Logic
-//  FIX: Replaced IntersectionObserver (unreliable with scroll-snap) with a
-//  scroll event that finds which card's center is closest to the track's center.
+//  Carousel Scroll Progress Bar
+//  Replaces the old diamond indicators. Reads the track's scroll position
+//  and maps it to a percentage-width fill on .carousel-progress-bar.
 const carousels = document.querySelectorAll('.carousel-wrapper');
 
 carousels.forEach(wrapper => {
     const track = wrapper.querySelector('.carousel-track');
-    const cards = track.querySelectorAll('.carousel-card');
-    const indicatorsContainer = wrapper.querySelector('.carousel-indicators');
+    if (!track) return;
 
-    if (!track || cards.length === 0 || !indicatorsContainer) return;
+    const bar = wrapper.querySelector('.carousel-progress-bar');
 
-    // Generate diamonds dynamically based on card count
-    indicatorsContainer.innerHTML = '';
-    cards.forEach((_, index) => {
-        const diamond = document.createElement('div');
-        diamond.classList.add('diamond');
-        if (index === 0) diamond.classList.add('active');
-
-        // Allow clicking a diamond to scroll to that card
-        diamond.addEventListener('click', () => {
-            cards[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-        });
-
-        indicatorsContainer.appendChild(diamond);
-    });
-
-    const diamonds = indicatorsContainer.querySelectorAll('.diamond');
-
-    // Find which card's center is closest to the visible center of the track
-    function updateActiveDiamond() {
-        const trackRect = track.getBoundingClientRect();
-        const trackCenter = trackRect.left + trackRect.width / 2;
-
-        let closestIndex = 0;
-        let minDistance = Infinity;
-
-        cards.forEach((card, i) => {
-            const rect = card.getBoundingClientRect();
-            const cardCenter = rect.left + rect.width / 2;
-            const distance = Math.abs(cardCenter - trackCenter);
-            if (distance < minDistance) {
-                minDistance = distance;
-                closestIndex = i;
-            }
-        });
-
-        diamonds.forEach((d, i) => d.classList.toggle('active', i === closestIndex));
+    function updateProgress() {
+        if (!bar) return;
+        const maxScroll = track.scrollWidth - track.clientWidth;
+        const pct = maxScroll > 0 ? (track.scrollLeft / maxScroll) * 100 : 0;
+        bar.style.width = pct + '%';
     }
 
-    // RAF-throttle the scroll handler to avoid layout thrashing
+    // RAF-throttled scroll listener for smooth, non-janky updates
     let ticking = false;
     track.addEventListener('scroll', () => {
         if (!ticking) {
             requestAnimationFrame(() => {
-                updateActiveDiamond();
+                updateProgress();
                 ticking = false;
             });
             ticking = true;
         }
     }, { passive: true });
 
-    // Set the correct diamond on load
-    updateActiveDiamond();
+    // Set initial state (some browsers restore scroll position on load)
+    updateProgress();
 });
 
 //  Collaborated With — Ticker Infinite Loop Setup
