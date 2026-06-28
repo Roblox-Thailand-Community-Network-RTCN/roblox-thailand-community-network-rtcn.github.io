@@ -237,38 +237,56 @@ const counterObserver = new IntersectionObserver((entries, observer) => {
 
 counters.forEach(counter => counterObserver.observe(counter));
 
-//  Carousel Scroll Progress Bar
-//  Replaces the old diamond indicators. Reads the track's scroll position
-//  and maps it to a percentage-width fill on .carousel-progress-bar.
+//  Carousel Scroll Progress Bar + Desktop Arrow Buttons
+//  Progress bar maps scroll position to a percentage fill.
+//  Arrow buttons (prev/next) scroll by one card width on desktop.
 const carousels = document.querySelectorAll('.carousel-wrapper');
 
 carousels.forEach(wrapper => {
     const track = wrapper.querySelector('.carousel-track');
     if (!track) return;
 
-    const bar = wrapper.querySelector('.carousel-progress-bar');
+    const bar     = wrapper.querySelector('.carousel-progress-bar');
+    const prevBtn = wrapper.querySelector('.carousel-btn--prev');
+    const nextBtn = wrapper.querySelector('.carousel-btn--next');
 
-    function updateProgress() {
-        if (!bar) return;
+    function updateUI() {
         const maxScroll = track.scrollWidth - track.clientWidth;
         const pct = maxScroll > 0 ? (track.scrollLeft / maxScroll) * 100 : 0;
-        bar.style.width = pct + '%';
+
+        // Progress bar
+        if (bar) bar.style.width = pct + '%';
+
+        // Button disabled states
+        if (prevBtn) prevBtn.disabled = track.scrollLeft <= 1;
+        if (nextBtn) nextBtn.disabled = maxScroll <= 1 || track.scrollLeft >= maxScroll - 1;
     }
+
+    // Scroll by one card + gap on button click
+    function scrollByCard(dir) {
+        const card = track.querySelector('.carousel-card');
+        if (!card) return;
+        const gap = parseFloat(getComputedStyle(track).gap) || 24;
+        track.scrollBy({ left: dir * (card.offsetWidth + gap), behavior: 'smooth' });
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', () => scrollByCard(-1));
+    if (nextBtn) nextBtn.addEventListener('click', () => scrollByCard(1));
 
     // RAF-throttled scroll listener for smooth, non-janky updates
     let ticking = false;
     track.addEventListener('scroll', () => {
         if (!ticking) {
             requestAnimationFrame(() => {
-                updateProgress();
+                updateUI();
                 ticking = false;
             });
             ticking = true;
         }
     }, { passive: true });
 
-    // Set initial state (some browsers restore scroll position on load)
-    updateProgress();
+    // Set initial state
+    updateUI();
 });
 
 //  Collaborated With — Ticker Infinite Loop Setup
